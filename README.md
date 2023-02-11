@@ -26,4 +26,4 @@ python3 manage.py runserver
 ```
 
 ## Автор
-Ivan Pavlov <divaythfyr@mail.ru>
+Ivan Pavlov (divaythfyr@mail.ru)
