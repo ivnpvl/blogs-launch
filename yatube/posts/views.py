@@ -1,11 +1,10 @@
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
 from .models import Group, Post
+from django.shortcuts import render, get_object_or_404
 
-# Create your views here.
+
 def index(request):
     template = 'posts/index.html'
-    title = 'Это главная страница проекта Yatube'
+    title = 'Последние обновления на сайте'
     posts = Post.objects.order_by('-pub_date')[:10]
     context = {
         'posts': posts,
@@ -16,15 +15,8 @@ def index(request):
 
 def group_posts(request, slug):
     template = 'posts/group_list.html'
-    title = 'Здесь будет информация о группах проекта Yatube'
-    # Функция get_object_or_404 получает по заданным критериям объект
-    # из базы данных или возвращает сообщение об ошибке, если объект не найден.
-    # В нашем случае в переменную group будут переданы объекты модели Group,
-    # поле slug у которых соответствует значению slug в запросе
     group = get_object_or_404(Group, slug=slug)
-    # Метод .filter позволяет ограничить поиск по критериям.
-    # Это аналог добавления
-    # условия WHERE group_id = {group_id}
+    title = f'Записи сообщества {group.title}'
     posts = Post.objects.filter(group=group).order_by('-pub_date')[:10]
     context = {
         'group': group,
