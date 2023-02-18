@@ -40,6 +40,10 @@ class Group(models.Model):
 
 
 class Post(models.Model):
+
+    class Meta:
+        ordering = ['-pub-date']
+
     text = models.TextField(
         verbose_name='Текст публикации',
         help_text='Всё, чем хотите поделиться!'
