@@ -42,7 +42,7 @@ class Group(models.Model):
 class Post(models.Model):
 
     class Meta:
-        ordering = ['-pub-date']
+        ordering = ['-pub_date']
 
     text = models.TextField(
         verbose_name='Текст публикации',
