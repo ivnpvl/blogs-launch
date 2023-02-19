@@ -40,10 +40,6 @@ class Group(models.Model):
 
 
 class Post(models.Model):
-
-    class Meta:
-        ordering = ['-pub_date']
-
     text = models.TextField(
         verbose_name='Текст публикации',
         help_text='Всё, чем хотите поделиться!'
@@ -71,3 +67,6 @@ class Post(models.Model):
             'Оставьте пустым, если подходящей группы нет.'
         ),
     )
+
+    class Meta:
+        ordering = ['-pub_date']
