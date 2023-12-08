@@ -33,4 +33,4 @@ python3 manage.py runserver
 Автор
 -----
 
-Иван Павлов, (ivnpvl@mail.ru)
+Иван Павлов, ivnpvl@mail.ru
